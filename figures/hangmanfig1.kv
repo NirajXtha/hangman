@@ -1,0 +1,38 @@
+#:kivy 2.0.0
+
+<HangManFig1>:
+	canvas.before:
+		PushMatrix:
+		Scale: 
+			x: self.width / self.w
+			y: self.height / self.h
+		Rotate:
+			angle: root.angle
+			axis: 0, 0, 1
+			origin: (600, 700)
+
+	canvas:
+		Line:
+			points: (600, 700, 600, 600)
+			width: 3
+	
+		Ellipse:
+			pos: (550, 500)
+		Line:
+			bezier: (610, 510, 630, 400, 570, 350)
+			width: 10
+		Line: 
+			bezier: (570, 350, 510, 370, 450, 270)
+			width: 10
+		Line: 
+			bezier: (570, 350, 600, 300, 550, 200)
+			width: 10
+		Line: 
+			bezier: (610, 480, 530, 430, 500, 430)
+			width: 10
+		Line: 
+			bezier: (610, 480, 630, 500, 680, 390)
+			width: 10
+	
+	canvas.after:
+		PopMatrix:

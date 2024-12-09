@@ -1,0 +1,14 @@
+#:kivy 2.0.0
+#:import BackGround1 backgrounds.background3
+
+<TitleScreen>:
+    BackGround3:
+    RelativeLayout:
+        Label:
+            id:title_tap
+            text:"Double Tap to Start"
+            font_size: (self.height + self.width) / 10
+            color: 1, 1, 1, root.col_offset
+            bold:True
+            size_hint: .15, .05
+            pos_hint: {'center_x': .5, 'center_y': .1}

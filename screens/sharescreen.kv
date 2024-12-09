@@ -1,0 +1,36 @@
+#:kivy 2.0.0
+#:import FrameBase figures.framebase
+#:import HangManFig1 figures.hangmanfig1
+#:import CustomButton widgets.custombutton
+#:import BackGround4 backgrounds.background4
+
+<ShareScreen>:
+	name: '_share_screen_'
+
+	BoxLayout:
+        orientation: 'vertical'
+		padding: 10
+		spacing: 10
+
+		Label:
+			text: "Username: " + root.username
+			color: 0,0,0,1
+		Label:
+			text: "Level: " + root.level
+			color: 0,0,0,1
+		Label:
+			text: "Life: " + root.life
+			color: 0,0,0,1
+		Label:
+			text: "Score: " + root.status
+			color: 0,0,0,1
+
+		Button:
+			text: 'Refresh'
+			on_press: root.load_user_data()
+		
+		CustomButton:
+			text: 'Back'
+			icon: 'skip-previous'
+			on_press: 
+				root.manager.current = '_main_screen_'

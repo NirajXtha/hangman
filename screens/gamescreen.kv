@@ -1,0 +1,85 @@
+#:kivy 2.0.0
+#:import CustomButton widgets.custombutton
+#:import BackGround1 backgrounds.background1
+#:import KeyBoard widgets.keyboard
+#:import FrameBase figures.framebase
+
+<GameScreen>:
+	name: '_game_screen_'
+	BackGround1:
+
+	CustomButton:
+		pos_hint: {'x': 0, 'y': 0}
+		text: 'Back'
+		icon: 'skip-previous'
+		on_press: 
+			root.quit_gamescreen()
+	
+	CustomButton:
+		pos_hint: {'right': 1, 'y': 0}
+		text: 'Hint'
+		icon: 'lamp'
+		on_press: 
+			root.hint_popup()
+
+	BoxLayout:
+		orientation: 'vertical'
+		RelativeLayout:
+			size_hint: (1, 0.05)
+			BoxLayout:
+				orientation: 'horizontal'
+				Label:
+					id: category
+					size_hint: (0.3, 1)
+					font_size: 30
+					text: "Category: " + str(root.category)
+				Label:
+					id: lives_label
+					size_hint: (0.3, 1)
+					font_size: 20
+					text: "💜" * root.lives
+					font_name: "seguiemj"
+				Label:
+					id: level_label
+					size_hint: (0.3, 1)
+					font_size: 30
+					text: "Level: " + str(root.level)
+				Label:
+					id: score_label
+					size_hint: (0.3, 1)
+					font_size: 20
+					text: str(root.score)
+
+
+		BoxLayout:
+			orientation: 'horizontal'
+			RelativeLayout:
+				id: drawing_area
+				w: 950
+				h: 750
+				canvas.before:
+					Color: 
+						rgb: 0, 0, 0
+
+					PushMatrix:
+					Scale:
+						x: self.width / self.w
+						y: self.height / self.h
+				canvas: 
+					Line:
+						points: (600, 700, 600, 623)
+						width: 3
+					PopMatrix:
+
+				FrameBase:
+
+			BoxLayout:
+				orientation: 'vertical'
+				RelativeLayout:
+					Label: 
+						id: guess_label
+						text: root.guess
+						font_size: (self.height + self.width) / 10
+
+				RelativeLayout:	
+					KeyBoard:

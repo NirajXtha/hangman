@@ -1,0 +1,30 @@
+#:kivy 2.0.0
+
+<FrameBase>:
+	canvas.before:
+		PushMatrix:
+		Scale:
+			x: self.width / self.w
+			y: self.height / self.h
+
+	canvas:
+			
+		Line:
+			points: (150 + self.x_offset, 100, 150 + self.x_offset, 700)
+			width: 20
+			cap: 'square'
+		Line: 
+			points: (150 + self.x_offset, 700, 600 + self.x_offset, 700)
+			width: 20
+			cap: 'square'
+		Line: 
+			points: (150 + self.x_offset, 600, 250 + self.x_offset, 700)
+			width: 20
+		Line:
+			points: (50 + self.x_offset, 80, 250 + self.x_offset, 80)
+			width: 20
+			cap: 'square'
+
+
+	canvas.after:
+		PopMatrix:

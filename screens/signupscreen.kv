@@ -1,0 +1,35 @@
+#:kivy 2.0.0
+#:import BackGround1 backgrounds.background1
+
+<SignupScreen>:
+    name: 'signup'
+    BackGround1:
+                
+    MDBoxLayout:
+        orientation: 'vertical'
+        padding: 40
+        spacing: 20
+
+        MDTextField:
+            id: username
+            hint_text: "Username"
+            icon_right: "account"
+
+        MDTextField:
+            id: password
+            hint_text: "Password"
+            icon_right: "lock"
+            password: True
+
+        MDFillRoundFlatIconButton:
+            text: "Sign Up"
+            icon: "account-plus"
+            pos_hint: {"center_x": 0.5}
+            on_release: root.validate_signup()
+
+        MDFlatButton:
+            text: "Already have an account? Login"
+            pos_hint: {"center_x": 0.5}
+            on_release:
+                root.manager.transition.direction = 'right'
+                root.manager.current = 'login'

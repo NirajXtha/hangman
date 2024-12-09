@@ -1,0 +1,25 @@
+#:kivy 2.0.0
+#:import BackGround5 backgrounds.background5
+#:import HangManFig4 figures.hangmanfig4
+
+<LoseScreen>:
+    name: '_lose_screen_'
+    BackGround5:
+ 
+    CustomButton:
+        text: 'Back'
+        icon: "skip-previous"
+        pos_hint: {'x': 0, 'y': 0}
+        on_release:
+            root.lose_popup()
+
+
+    RelativeLayout:
+        canvas.before:
+            Color: 
+                rgb: 0, 0, 0
+
+        id: animation_area
+        size_hint_x: 0.7
+        HangManFig4:
+

@@ -1,0 +1,57 @@
+#:kivy 2.0.0
+#:import FrameBase figures.framebase
+#:import HangManFig1 figures.hangmanfig1
+#:import CustomButton widgets.custombutton
+#:import BackGround1 backgrounds.background1
+
+<MainScreen>:
+    name: '_main_screen_'
+    BackGround1:
+    BoxLayout:
+        RelativeLayout:
+            canvas.before:
+                Color:
+                    rgb: 0, 0, 0
+
+            size_hint_x: 0.7
+            FrameBase:
+            HangManFig1:
+
+        RelativeLayout:
+            size_hint_x: 0.3
+            CustomButton:
+                text: ' Play'
+                font_size:35
+                icon: 'gamepad'
+                pos_hint: {'x': 0, 'y': 0.8}
+
+                on_release: 
+                    root.manager.transition.direction = 'left'
+                    root.manager.current = '_game_screen_'
+
+            CustomButton:
+                text: ' Quit'
+                font_size:35
+                icon: 'close-circle'
+                halign: 'center'
+                pos_hint: {'x': 0,'y': 0.6}
+
+                on_release:
+                    root.show_confirmation_dialog()
+
+            CustomButton:
+                id: profile
+                text: 'Profile'
+                font_size:35
+                pos_hint: {'x': 0, 'y': 0.2}
+
+                on_release: root.manager.current = '_share_screen_'
+
+            CustomButton:
+                id: login_button
+                text: 'Login'
+                font_size:35
+                icon: 'login'
+                pos_hint: {'x': 0, 'y': 0.4}
+
+                on_release: root.login()
