@@ -34,7 +34,7 @@ class GameScreen(Screen):
             self.username = None
         db = mysql.connector.connect(
             host="localhost",
-            user="Akanshya",
+            user="root",
             password="1234",
             database="hangman"
         )
@@ -57,7 +57,7 @@ class GameScreen(Screen):
     def on_enter(self, *args):
         db = mysql.connector.connect(
             host="localhost",
-            user="Akanshya",
+            user="root",
             password="1234",
             database="hangman"
         )
@@ -86,7 +86,7 @@ class GameScreen(Screen):
     def save_user_data(self, *args):
         db = mysql.connector.connect(
             host="localhost",
-            user="Akanshya",
+            user="root",
             password="1234",
             database="hangman"
         )

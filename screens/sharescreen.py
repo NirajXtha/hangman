@@ -33,7 +33,7 @@ class ShareScreen(Screen):
                 if(self.username != "N/A"):
                     db = mysql.connector.connect(
                         host="localhost",
-                        user="Akanshya",
+                        user="root",
                         password="1234",
                         database="hangman"
                     )
